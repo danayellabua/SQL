@@ -1,0 +1,131 @@
+--Create a bookstore database
+
+CREATE TABLE WeirdBookstore (ID integer primary key, Bookname TEXT, Author TEXT, Topic TEXT, Price INTEGER, Qty_InStock INTEGER);
+
+INSERT INTO WeirdBookstore VALUES (1, "Warrior Poet, A Biography of Audre Lorde", "Alexis De Veaux", "Biography/Memoir", "29.95", "4");
+
+INSERT INTO WeirdBookstore VALUES (2, "Sunbelt Blues: The Failure of American Housing", "Andrew Ross", "Current Events", "17.99", "3");
+
+INSERT INTO WeirdBookstore VALUES (3, "A Participatory Economy", "Robin Hahnel", "Economics", "22.00", "5");
+
+INSERT INTO WeirdBookstore VALUES (4, "Gentrification is Inevitable and Other Lies", "Leslie Kern", "Economics", "24.95", 1);
+
+INSERT INTO WeirdBookstore VALUES (5, "Education Without Borders", "Patrick Sylvain", "Education", "16.95", "2");
+
+INSERT INTO WeirdBookstore VALUES (6, "Our Synthetic Environment", "Murray Bookchin", "Environment", "17.95", "3");
+
+INSERT INTO WeirdBookstore VALUES (7, "Atomic Days", "Joshua Frank", "Environment", "19.95", "6");
+
+INSERT INTO WeirdBookstore VALUES (8, "Madame Restell", "Jennifer Wright", "Biography/Memoir", "30.00", "1");
+
+INSERT INTO WeirdBookstore VALUES (9, "How the Word is Passed", "Clint Smith", "History", "18.99", "4");
+
+INSERT INTO WeirdBookstore VALUES (10, "Radius", "Yasmin El-Rifae", "History", "24.95", "5");
+
+INSERT INTO WeirdBookstore VALUES (11, "The End of Animal Farming", "Jacy Reese", "Animal Rights", "17.95", "8");
+
+INSERT INTO WeirdBookstore VALUES (12, "The Weight of the Stars", "Augustín Comotto", "Biography/Memoir", "22.00", "5");
+
+INSERT INTO WeirdBookstore VALUES (13, "Station Six", "S.J. Klapecki", "Fiction/Poetry", "16.00", "11");
+
+INSERT INTO WeirdBookstore VALUES (14, "Escape from Incel Island", "Margaret Killjoy", "Fiction/Poetry", "20.00", "3");
+
+INSERT INTO WeirdBookstore VALUES (15, "The Storm is Upon Us", "Mike Rothschild", "Current Events", "17.99", "4");
+
+INSERT INTO WeirdBookstore VALUES (16, "The Power in the Room", "Jay Gillen", "Education", "17.95", "3");
+
+INSERT INTO WeirdBookstore VALUES (17, "Conspiracy to Riot", "Lee Weiner", "History", "16.95", "1");
+
+INSERT INTO WeirdBookstore VALUES (18, "Let the Record Show", "Sarah Schulman", "History", "22.00", "3");
+
+INSERT INTO WeirdBookstore VALUES (19, "The Ground Breaking", "Scott Ellsworth", "History", "18.00", "5");
+
+INSERT INTO WeirdBookstore VALUES (20, "Fake Meat, Real Food for Vegan Appetites", "Isa Chandra Moskowitz", "Cookbooks", "32.00", "1");
+
+INSERT INTO WeirdBookstore VALUES (21, "Vegan with a Bite", "Shannon Martinez", "Cookbooks", "24.99", "10");
+
+INSERT INTO WeirdBookstore VALUES (22, "Notes on Resistance", "Noam Chomsky", "Current Events", "18.95", "4");
+
+INSERT INTO WeirdBookstore VALUES (23, "Agroecology and Regenerative Agriculture", "Vandana Shiva", "Environment", "24.95", "9");
+
+INSERT INTO WeirdBookstore VALUES (24, "A Minor Chorus", "Billy-Ray Belcourt", "Fiction/Poetry", "15.95", "6");
+
+INSERT INTO WeirdBookstore VALUES (25, "The Darker Nations", "Vijay Prashad", "History", "19.99", "7");
+
+INSERT INTO WeirdBookstore VALUES (26, "Zooicide", "Sue Coe", "Animal Rights", "20.00", "9");
+
+INSERT INTO WeirdBookstore VALUES (27, "Zionism in the Age of the Dictators", "Lenni Brenner", "History", "22.00", "3");
+
+INSERT INTO WeirdBookstore VALUES (28, "Post Internet Far Right", "Sam Moore", "Current Events", "17.95", "1");
+
+INSERT INTO WeirdBookstore VALUES (29, "Afterglow", "Grist", "Fiction/Poetry", "16.99", "8");
+
+INSERT INTO WeirdBookstore VALUES (30, "Hot Damn and Hell Yeah, Recipes for Hungry Banditos", "Ryan Splint", "Cookbooks", "10.95", "6");
+
+INSERT INTO WeirdBookstore VALUES (31, "Veganomicon", "Isa Chandra Moskowitz", "Cookbooks", "35.00", "4");
+
+INSERT INTO WeirdBookstore VALUES (32, "The Viral Underclass", "Steven W. Thrasher", "Economics", "29.99", "5");
+
+INSERT INTO WeirdBookstore VALUES (33, "The Sinking Middle Class", "David Roediger", "Economics", "19.95", "6");
+
+INSERT INTO WeirdBookstore VALUES (34, "The Patriarchs", "Angela Saini", "Gender Studies", "26.95", "2");
+
+INSERT INTO WeirdBookstore VALUES (35, "Truth and Repair", "Judith Lewis Herman", "Gender Studies", "28.00", "9");
+
+INSERT INTO WeirdBookstore VALUES (36, "The Feminist Subversion of the Economy", "Amaia Perez Orozco", "Gender Studies", "22.00", "3");
+
+INSERT INTO WeirdBookstore VALUES (37, "Immunodemocracy", "Donatella Di Cesare", "Current Events", "15.95", "7");
+
+INSERT INTO WeirdBookstore VALUES (38, "README.txt", "Chelsea Manning", "Biography/Memoir", "28.00", "6");
+
+INSERT INTO WeirdBookstore VALUES (39, "The Dead Are Arising", "Les Payne", "Biography/Memoir", "21.95", "2");
+
+INSERT INTO WeirdBookstore VALUES (40, "Fight Like Hell", "Kim Kelly", "History", "28.00", "1");
+
+
+--Display Database ordered by author alphabetically
+
+SELECT * FROM WeirdBookstore ORDER BY author ASC;
+
+
+--Display Database ordered by price
+
+SELECT * FROM WeirdBookstore ORDER BY price DESC;
+
+SELECT * FROM WeirdBookstore ORDER BY price ASC;
+
+
+--Display Database ordered by quantity that is in stock
+
+SELECT * FROM WeirdBookstore ORDER BY Qty_InStock;
+
+
+--What is the average price of History Books
+
+SELECT AVG(price) "avg history book price" FROM WeirdBookstore WHERE topic='History';
+
+
+--How many books are in the database?
+
+SELECT COUNT(Bookname) FROM WeirdBookstore;
+
+
+--How many books are in stock?
+
+SELECT SUM(Qty_InStock) FROM WeirdBookstore;
+
+
+--View only the title, price, and quantity
+
+SELECT Bookname, Price, Qty_InStock FROM WeirdBookstore;
+
+
+--Order the database by price, by quantity in stock, by author, by title
+
+SELECT Bookname, Price, Qty_InStock FROM WeirdBookstore ORDER BY Price DESC;
+
+SELECT Bookname, Price, Qty_InStock FROM WeirdBookstore ORDER BY Qty_InStock DESC;
+
+SELECT Bookname, Author, Price FROM WeirdBookstore ORDER BY Author;
+
+SELECT Bookname, Author, Price FROM WeirdBookstore ORDER BY Bookname;
